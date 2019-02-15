@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Jacob Ashcraft
-Numeric Algorithms 1
+Graphs - Strongly Connected Components
 Advanced Algorithms
 Professor Teichert
 
@@ -26,10 +26,13 @@ def explore(g, v):
     #previsit(v)
     visited[v] = True
     previsit(v)
-    for b in g[v]:
+    print(g)
+    print(v)
+    print (visited)
+    """ for b in g[v]:
         if not visited[b]:
-            explore(g, b, visited)
-    #postvisit(v)
+            explore(g, b) """
+    postvisit(v)
     
 def dfs(g):
     """
@@ -38,9 +41,10 @@ def dfs(g):
     globals()['visited'] = {}
 
     visited = [False] * len(g)
+    print (visited)
     for v in range(len(g)):
         if not visited[v]:
-            explore(g, v, visited)
+            explore(g, v)
 
 if __name__ == "__main__":
     g = defaultdict(list)
