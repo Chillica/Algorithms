@@ -1,2 +1,2 @@
-# Polynomial
-Creating Polynomial class with tests.
+# Algorithms
+Creating different algorithms using python with tests.
