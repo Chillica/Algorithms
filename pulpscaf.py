@@ -50,8 +50,13 @@ def lp3():
             x3 + x4 >= 2,
             x5 + x6 >= 2,])
 
+def InflowOutflow(graph):
+    x1, x2, x3, x4, x5, x6 = vars('x1, x2, x3, x4, x5, x6', low = 0)
+    pass
+
 
 def main():
+    
     print(lp1())
     print(lp2())
     print(lp3())
