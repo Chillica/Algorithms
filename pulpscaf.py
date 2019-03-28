@@ -49,6 +49,11 @@ def lp3():
             x1 + x2 >= 2,
             x3 + x4 >= 2,
             x5 + x6 >= 2,])
+def lp4():
+    x, y = vars('x, y', low = 0)
+    return lp('max', x + y, [
+            2*x + y <= 3,
+            x + 3*y <= 5])
 
 def InflowOutflow(graph):
     x1, x2, x3, x4, x5, x6 = vars('x1, x2, x3, x4, x5, x6', low = 0)
@@ -57,9 +62,10 @@ def InflowOutflow(graph):
 
 def main():
     
-    print(lp1())
-    print(lp2())
-    print(lp3())
+    #print(lp1())
+    #print(lp2())
+    #print(lp3())
+    print(lp4())
 
 if __name__ == "__main__":
     main()
