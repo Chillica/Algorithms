@@ -4,37 +4,28 @@ import math
 
 # With the two sentences above I will implement the calculation based on calculation
 # values. 
+
+def magnitude(v1):
+    vResult = [abs(a * b) for a, b in zip(v1, v1)]
+    mag = math.sqrt(sum(vResult, 0))
+    return mag
+
 def word_order(s1, s2):
-    s1 = s1.lower()
-    s2 = s2.lower()
-    c1 = str.split(s1[:-1])
-    c2 = str.split(s2[:-1])
-    
+    c1 = str.split(s1[:-1].lower())
+    c2 = str.split(s2[:-1].lower())
     v1 = list(range(1,len(c1)+1))
-    #print(v1)
     v2 = list()
     for word in range(len((c1))):
         for val in range(len(c2)):
             if(c1[word] == c2[val]):
                 v2.append(val+1)
-    #print(v2)
     vResult = [abs(a - b) for a, b in zip(v1, v2)]
     vResult2 = [abs(a * b) for a, b in zip(v1, v2)]
-    vSum = 0
-    vSum2 = 0
-    for index in range(len(vResult)):
-        vSum += vResult[index]
-    for index in range(len(vResult2)):
-        vSum2 += vResult2[index]
-    #print(c1)
-    #print(c2)
-    #print(vResult)
-    #print(vResult2)
-    #print(vSum)
-    #print(vSum2)
-    if(vSum2 != 0):
-        val =  vSum / vSum2
-    elif((vSum + vSum2) == 0):
+    mag1 = magnitude(vResult)
+    mag2 = magnitude(vResult2)
+    if(mag2 != 0):
+        val = mag1 / mag2
+    elif((mag1 + mag2) == 0):
         val = 1
     else:
         val =  0
@@ -50,8 +41,8 @@ def test_word_order():
     s4 = "The fat bird runs across a green bog."
     s5 = "Big fat bird runs across an orange bog."
     s6 = "Big fat bird is an orange bog."
-    assert isclose(0.038461, word_order(s1, s2))
+    assert isclose(0.067091, word_order(s1, s2))
     assert isclose(0.000000, word_order(s1, s1))
-    assert isclose(0.75, word_order(s3, s4))
+    assert isclose(0.806225, word_order(s3, s4))
     assert isclose(1, word_order(s3, s5))
     assert isclose(1, word_order(s3, s6))
